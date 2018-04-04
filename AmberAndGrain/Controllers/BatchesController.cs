@@ -1,4 +1,5 @@
 ﻿using AmberAndGrain.Models;
+using AmberAndGrain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,16 @@ namespace AmberAndGrain.Controllers
         [Route, HttpPost]
         public HttpResponseMessage AddBatch(AddBatchDto addBatch)
         {
-            return Request.CreateResponse(HttpStatusCode.Created);
+
+            var batchRepository = new BatchRepository();
+            // create method in BatchRepository takes in RecipeId and Cooker
+            var result = batchRepository.Create(addBatch.RecipeId, addBatch.Cooker);
+
+            if (result)
+                return Request.CreateResponse(HttpStatusCode.Created);
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, 
+                "Could not process batch. Please try again later!!!!!");
         }
     }
 }
