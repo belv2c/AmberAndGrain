@@ -189,10 +189,8 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeDto.cs" />
-    <Compile Include="Models\Whiskey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RecipeRepository.cs" />
-    <Compile Include="Services\OrderWhiskeyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
