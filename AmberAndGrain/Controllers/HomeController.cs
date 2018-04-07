@@ -10,6 +10,7 @@ namespace AmberAndGrain.Controllers
     {
         public ActionResult Index()
         {
+            // transfers data from the controller to the view
             ViewBag.Title = "Home Page";
 
             return View();
