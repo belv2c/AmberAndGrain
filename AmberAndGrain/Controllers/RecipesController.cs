@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace AmberAndGrain.Controllers
 {
-    [RoutePrefix("")]
+    [RoutePrefix("recipes")]
     public class RecipesController : ApiController
     {
         // add api endpoint that gets appended to the routeprefix on the class
