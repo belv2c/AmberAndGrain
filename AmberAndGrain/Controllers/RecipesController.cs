@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace AmberAndGrain.Controllers
 {
-    [RoutePrefix("recipes")]
+    [RoutePrefix("api/recipes")]
     public class RecipesController : ApiController
     {
         // add api endpoint that gets appended to the routeprefix on the class
@@ -24,6 +24,14 @@ namespace AmberAndGrain.Controllers
 
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
                 "Could not process order, please try again later... ");
+        }
+        [Route(""), HttpGet]
+        public HttpResponseMessage GetAllRecipes()
+        {
+            var repo = new RecipeRepository();
+            List<RecipeDto> recipes = repo.GetAll();
+
+            return Request.CreateResponse(HttpStatusCode.OK, recipes);
         }
     }
 }
